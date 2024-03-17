@@ -1,0 +1,65 @@
+SauceLabs access key:
+Username: oauth-kishorathale-35515
+Key: 8a5ddb8c-b013-4d41-8f47-518914dacf5c
+
+
+BrowserStack:
+Username: kishorathale_4cqwgb
+Key: r8sn5LghzD9mLfu9k6CN
+
+
+
+Git Commands:
+1. create a new repository on the command line:
+echo "# KA-170324" >> README.md
+git init=======> this will initilialize the git system in the prject root directory. Local Git system will be created here with master as default branch.
+git add README.md===> this will add a single file and for all files to be added use the command====> git add * ( done for the first time when no files have been alreday added)
+git commit -m "first commit"  ===> this will commit the changes to the staging area-local master
+git branch -M main====> this will commit to the remote-master 
+git remote add origin https://github.com/Athale08/KA-1703224.git
+git push -u origin main
+
+2. push an existing repository from the command line
+git remote add origin https://github.com/Athale08/KA-1703224.git
+git branch -M main
+git push -u origin main
+
+
+A) GitHub- Personal Access Token- Expirey 10th June 2024
+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
+
+Cloning the Ensek project from GitHib repo and pulling it to the IntelliJ: copy the HTPPS link and save it as below and then add your personal access token
+after the // and add a '@' icon between the 2 links and then copy this and go to your IDE>File>new>Project from version control>pastae the URL>clone
+clone link- https://github.com/Athale08/EnsekTestProjectMay28.git
+after adding the personal access token: https://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@github.com/Athale08/EnsekTestProjectMay28.git
+
+
+
+B) for E2E_ Automation project - will do the above using cmd terminal and then using the IDE-Git features
+using terminal:
+repo url: https://github.com/Athale08/KA-170324.git
+after adding access key: https://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@github.com/Athale08/KA-170324.git
+
+using IDE Git features:
+
+url: https://github.com/Athale08/Test01.git
+after adding access key: https://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@github.com/Athale08/Test01.git
+
+
+In real world, the Dev team will give the QA the repo url. So QA needs to go on that repo url> and clone it by copying the repo ulr from the code/button
+> save this on notepad> then append your personal access token to this url
+
+repo name = Test01
+url: https://github.com/Athale08/Test01.git
+after adding access token: https://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@github.com/Athale08/Test01.git
+Now tap on New> project from version control> copy the above uri> select the correct target folder where you want to clone it> tap on clone> trust project.
+so the thumb rule is =====>
+1. clone the Remote-master which will create a Local-master in the IDE.
+2. Then create a local-feature branch and make the changes into this branch and then add this to the staging and commit and push these changes to the Remote-master.
+3. This will create a Remote-feature branch with the same name on GitHub.
+4. Then we will compare the remote-feature to the remote-master and if there are no errors then we will merge the changes with the remote-master.
+5. once the changes are merged with the remote-master, you can delete the remote-feature branch from GitHub.
+6. If there are errots thenw e will reject the merge.
+
+How to create local-feature branch:
+right click on project> Git> new branch> enter name
