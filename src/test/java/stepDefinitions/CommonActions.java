@@ -16,7 +16,8 @@ public class CommonActions {
     private Properties properties;
 
 
-// abc
+//new change is done
+    // more changes are made
 
     @Before
     public void openBrowser(){
