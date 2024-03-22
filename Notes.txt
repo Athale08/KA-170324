@@ -63,3 +63,8 @@ so the thumb rule is =====>
 
 How to create local-feature branch:
 right click on project> Git> new branch> enter name
+
+
+Cloning Test123:
+url: https://github.com/Prasea1993/Test123.git
+adding my key: https://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@github.com/Prasea1993/Test123.git
