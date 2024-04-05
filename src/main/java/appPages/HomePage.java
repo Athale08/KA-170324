@@ -21,8 +21,10 @@ public class HomePage extends BasePage {
 
 
     public void navigateToLoginPage(){
-
-       clickElement(signUpLink);
+    verifyIsElementDisplayed(signUpLink); // this will verify if the element is displayed
+     verifyElementText(signUpLink, "Sign Up");  //this will assert that the text is as expected
+      verifyIsElementClickable(signUpLink); // this will assert that the element is enabled/active
+        clickElement(signUpLink); // so after the above assertion then we are clicking on the element
 
     }
 
