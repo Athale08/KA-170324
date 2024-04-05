@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
 
-        features = {"src/test/resources/features/LoginTest.feature"},
+        features = {"src/test/resources/features/UserRegistrationTest2.feature"},
         glue = {"stepDefinitions","CommonActions"},
         plugin = {"pretty",
 
