@@ -38,15 +38,19 @@ public class RegistrationPage extends BasePage {
     // create a method to perform the actions
     public void enterSignUpDetails(String username, String emailID){
 
-
         Faker faker = new Faker();
 
-
-
        // driver.findElement(textUsername).sendKeys(username + faker.name().name());
+        verifyIsElementDisplayed(textUsername);
         inputInfo(textUsername, username + faker.name().name() );
+
       //  driver.findElement(textEmailAddress).sendKeys(emailID+faker.name().firstName()+"kishoretraining@gmail.com");
+        verifyIsElementDisplayed(textEmailAddress);
         inputInfo(textEmailAddress, emailID+faker.name().firstName()+"kishoretraining@gmail.com");
+
+        verifyIsElementDisplayed(buttonSignup);
+        verifyElementText(buttonSignup, "Signup");
+        verifyIsElementClickable(buttonSignup);
         clickElement(buttonSignup);
     }
 
@@ -54,36 +58,59 @@ public class RegistrationPage extends BasePage {
     public void enterInitialInfo(String title, String password,String day, String month, String year){
 
         if(title.equalsIgnoreCase("Mr")){
+            verifyIsElementDisplayed(labelMr);
+            verifyIsElementClickable(labelMr);
             clickElement(labelMr);
         }
         else{
+            verifyIsElementDisplayed(labelMrs);
+            verifyIsElementClickable(labelMrs);
             clickElement(labelMrs);
         }
 
       //  driver.findElement(textPassword).sendKeys(password);
+        verifyIsElementDisplayed(textPassword);
         inputInfo(textPassword, password);
 
        // Select days = new Select(driver.findElement(dropDownDay));
        // days.selectByVisibleText(day);
+        verifyIsElementDisplayed(dropDownDay);
+        verifyIsElementClickable(dropDownDay);
         dropDownElement(dropDownDay, day);
 
       //  Select months = new Select(driver.findElement(dropDownMonth));
        // months.selectByVisibleText(month);
+        verifyIsElementDisplayed(dropDownMonth);
+        verifyIsElementClickable(dropDownMonth);
         dropDownElement(dropDownMonth, month);
 
        // Select years = new Select(driver.findElement(dropDownYear));
      //   years.selectByVisibleText(year);
+        verifyIsElementDisplayed(dropDownYear);
+        verifyIsElementClickable(dropDownYear);
         dropDownElement(dropDownYear, year);
     }
     public void enterAddressInfo(String firstname, String lastname, String address1, String address2) {
         Faker faker1 = new Faker();
+
        // driver.findElement(textFirstName).sendKeys(firstname +faker1.funnyName().name());
+        verifyIsElementDisplayed(textFirstName);
+        verifyIsElementClickable(textFirstName);
         inputInfo(textFirstName, firstname +faker1.funnyName().name() );
+
        // driver.findElement(textLastName).sendKeys(lastname + faker1.funnyName().name());
+        verifyIsElementDisplayed(textLastName);
+        verifyIsElementClickable(textLastName);
         inputInfo(textLastName, lastname + faker1.funnyName().name());
+
        // driver.findElement(textAddress).sendKeys(address1);
+        verifyIsElementDisplayed(textAddress);
+        verifyIsElementClickable(textAddress);
         inputInfo(textAddress, address1);
+
        // driver.findElement(textAddress2).sendKeys(address2);
+        verifyIsElementDisplayed(textAddress2);
+        verifyIsElementClickable(textAddress2);
         inputInfo(textAddress2, address2);
 
     }
@@ -95,12 +122,23 @@ public class RegistrationPage extends BasePage {
         countrys.selectByVisibleText(country);
 
        // driver.findElement(textState).sendKeys(state);
+        verifyIsElementDisplayed(textState);
+        verifyIsElementClickable(textState);
         inputInfo(textState, state);
+
        // driver.findElement(textCity).sendKeys(city);
+        verifyIsElementDisplayed(textCity);
+        verifyIsElementClickable(textCity);
         inputInfo(textCity,city);
+
        // driver.findElement(textZipCode).sendKeys(zipcode);
+        verifyIsElementDisplayed(textZipCode);
+        verifyIsElementClickable(textZipCode);
         inputInfo(textZipCode,zipcode);
+
        // driver.findElement(textMobileNumber).sendKeys(mobilenumber + faker2.phoneNumber().cellPhone());
+        verifyIsElementDisplayed(textMobileNumber);
+        verifyIsElementClickable(textMobileNumber);
         inputInfo(textMobileNumber, mobilenumber + faker2.phoneNumber().cellPhone());
 
     }
@@ -109,6 +147,10 @@ public class RegistrationPage extends BasePage {
      //clickElement(buttonCreateAccount);
 //The above method gives a 'clickElementInterception exception'. To avoid this we will use the JavaScriptExecutor method//
 // This method is used when the click element is not in direct view so without scrolling, the click can be done.
+
+        verifyIsElementDisplayed(buttonCreateAccount);
+        verifyElementText(buttonCreateAccount, "Create Account");
+        verifyIsElementClickable(buttonCreateAccount);
         clickElementUsingJs(buttonCreateAccount);
     }
 

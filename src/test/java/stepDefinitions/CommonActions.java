@@ -1,6 +1,8 @@
 package stepDefinitions;
 
 import drivers.DriverFactory;
+import enums.BrowserType;
+import enums.ExecutionEnv;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -26,22 +28,18 @@ public class CommonActions {
        properties = configReader.getProperties();
 
        driverFactory = new DriverFactory();
-       driver = driverFactory.init_Driver(properties.getProperty("env"), properties.getProperty("browser"));
-
+     //  driver = driverFactory.init_Driver(properties.getProperty("env"), properties.getProperty("browser"));
+        // now we will do the below using enum type
+       driver = driverFactory.init_Driver(ExecutionEnv.valueOf(properties.getProperty("env").toUpperCase()), BrowserType.valueOf(properties.getProperty("browser").toUpperCase()));
        driver.get(properties.getProperty("appURL"));
 
 
     }
-
-
     @After
     public void tearDown(){
 
      driver.quit();
 
     }
-
-
-
 
 }

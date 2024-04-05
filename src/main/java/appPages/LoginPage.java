@@ -23,9 +23,18 @@ public class LoginPage extends BasePage {
     public void loginToApp(String email,String password){
 
         //driver.findElement(textEmailAddress).sendKeys(email);
+        verifyIsElementDisplayed(textEmailAddress);
+        verifyIsElementClickable(textEmailAddress);
         inputInfo(textEmailAddress, email);
+
         //driver.findElement(textPassword).sendKeys(password);
+        verifyIsElementDisplayed(textPassword);
+        verifyIsElementClickable(textPassword);
         inputInfo(textPassword, password);
+
+        verifyIsElementDisplayed(buttonLogin);
+        verifyElementText(buttonLogin, "Login");
+        verifyIsElementClickable(buttonLogin);
         clickElement(buttonLogin);
     }
 

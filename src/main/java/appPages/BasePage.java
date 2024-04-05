@@ -2,6 +2,7 @@
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.util.Set;
 
@@ -53,49 +54,73 @@ public class BasePage {
             alert.dismiss();
         }
     }
-        // To handle iframes the below 2 methods are used
-        public void handleFrame (String value){   // enter the outerframe
-            driver.switchTo().frame("value");  // provide the Id or name
+
+    // To handle iframes the below 2 methods are used
+    public void handleFrame(String value) {   // enter the outerframe
+        driver.switchTo().frame("value");  // provide the Id or name
 // now you can perform any actions like sendkeys, clicks etc
-        }
-        // to navigate back to the outer frame use the below method
+    }
+    // to navigate back to the outer frame use the below method
 
-        public void navigateBack (String value){
-            driver.switchTo().defaultContent();
-        }
-// To handle multiple windows( 2 windows=parent and child) we will use the below methods
-        public void switchToChildWindow () {
-            String parentWindow = driver.getWindowHandle();  // window A
-            //action that will trigger additional window
+    public void navigateBack(String value) {
+        driver.switchTo().defaultContent();
+    }
 
-            Set<String> windows = driver.getWindowHandles();  // this will store all the open windows. Each window will have a unique id hence this is stored in Set<String>
+    // To handle multiple windows( 2 windows=parent and child) we will use the below methods
+    public void switchToChildWindow() {
+        String parentWindow = driver.getWindowHandle();  // window A
+        //action that will trigger additional window
+
+        Set<String> windows = driver.getWindowHandles();  // this will store all the open windows. Each window will have a unique id hence this is stored in Set<String>
 // so to navigate to the child window we will traverse through all the windows and put a negative condition as below# windows A, B
 
-            for (String window : windows) {
-                if (!window.equals(parentWindow)) {  // NOT(!) operator is used to negate the condition so that you can navigate to child window- false of false is True
+        for (String window : windows) {
+            if (!window.equals(parentWindow)) {  // NOT(!) operator is used to negate the condition so that you can navigate to child window- false of false is True
 
-                    driver.switchTo().window(window); // this will switch to the child window
-                }
-                driver.switchTo().window(parentWindow); // this will bring you back to the parent window
-
+                driver.switchTo().window(window); // this will switch to the child window
             }
+            driver.switchTo().window(parentWindow); // this will bring you back to the parent window
 
-
-        }
-        // to handle more than 2 windows where there more than 2 child windows to handle, the unique Title of each wndow is used
-        public void handleMultipleWindows(String title){
-        String parentWindow1 = driver.getWindowHandle();
-            Set<String> windows1 = driver.getWindowHandles();
-        for(String window:windows1){
-            driver.switchTo().window(window);
-            if(driver.getTitle().equals(title)){
-                // here inside the if block you can perform the actions and once done, navigate back to the parent window.
-                // so if needed you can again switch to another child window by using the title reference
-                driver.switchTo().window(parentWindow1);
-            }
-        }
-// new chanege
         }
 
 
     }
+
+    // to handle more than 2 windows where there more than 2 child windows to handle, the unique Title of each wndow is used
+    public void handleMultipleWindows(String title) {
+        String parentWindow1 = driver.getWindowHandle();
+        Set<String> windows1 = driver.getWindowHandles();
+        for (String window : windows1) {
+            driver.switchTo().window(window);
+            if (driver.getTitle().equals(title)) {
+                // here inside the if block you can perform the actions and once done, navigate back to the parent window.
+                // so if needed you can again switch to another child window by using the title reference
+                driver.switchTo().window(parentWindow1);
+            }
+
+
+        }
+    }
+    /* Assertions or Validations are done in the BasePage as well.
+    Types:
+        1. Verify if some element is displayed
+        2. Verify if the text of the element is as expected or not
+        3. Verify if some element is clickable or not
+        4. Compare the expected result vs actual result
+     Good practice is to write some generic assertions using TestNG.
+         */
+    public void verifyIsElementDisplayed(By by){
+
+        Assert.assertTrue(driver.findElement(by).isDisplayed());
+    }
+
+    public void verifyElementText(By by, String expectedResult){
+
+        Assert.assertEquals(driver.findElement(by).getText(), expectedResult);
+    }
+
+    public void verifyIsElementClickable(By by){
+        Assert.assertTrue(driver.findElement(by).isEnabled());
+    }
+
+}
