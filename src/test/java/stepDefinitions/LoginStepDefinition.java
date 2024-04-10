@@ -50,4 +50,9 @@ public class LoginStepDefinition {
 
 
     }
+   // the below stepdefinition was created to explain how to verify at test level using assertion methods created in BasePage
+    @And("verify login elements")
+    public void verifyLoginElements() {
+     loginPage.verifyLoginElementsAndTexts();
+    }
 }

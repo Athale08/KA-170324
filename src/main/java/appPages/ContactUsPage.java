@@ -21,41 +21,53 @@ public class ContactUsPage extends BasePage {
     private By textMessage = By.id("message");
     private By submitButton = By.xpath("//input[@data-qa='submit-button']");
 
+
+
+    // Below we will create a specific method to assert verification
+
+    public void assertContactUsPageElements(){
+        verifyIsElementDisplayed(contactUsLink);
+        verifyElementText(contactUsLink, "Contact us");
+        verifyIsElementDisplayed(textName);
+        verifyIsElementDisplayed(textEmail);
+        verifyIsElementDisplayed(textSubject);
+        verifyIsElementDisplayed(textMessage);
+        verifyIsElementDisplayed(submitButton);
+        verifyElementText(submitButton, "Submit");
+    }
     public void enterGetInTouchDetails(String name, String email, String subject, String message) {
 
 
         Faker faker = new Faker();
-        verifyIsElementDisplayed(contactUsLink);
-        verifyElementText(contactUsLink, "Contact us");
-        verifyIsElementClickable(contactUsLink);
+
+        verifyIsElementClickable(contactUsLink);   // assert the action
         clickElement(contactUsLink);
 
        // driver.findElement(textName).sendKeys(name + faker.name().name());
-        verifyIsElementDisplayed(textName);
-        verifyIsElementClickable(textName);
+
+        verifyIsElementClickable(textName);   // assert the action
         inputInfo(textName, name + faker.name().name());
 
        // driver.findElement(textEmail).sendKeys(email + faker.name().firstName() + "kishoretraining123@gmail.com");
-        verifyIsElementDisplayed(textEmail);
-        verifyIsElementClickable(textEmail);
+
+        verifyIsElementClickable(textEmail);   // assert the action
         inputInfo(textEmail, email + faker.name().firstName() + "kishoretraining123@gmail.com");
 
        // driver.findElement(textSubject).sendKeys(subject);
-        verifyIsElementDisplayed(textSubject);
-        verifyIsElementClickable(textSubject);
+
+        verifyIsElementClickable(textSubject);  // assert the action
         inputInfo(textSubject, subject);
 
         //driver.findElement(textMessage).sendKeys(message + faker.letterify("HelloWorld"));
-        verifyIsElementDisplayed(textMessage);
-        verifyIsElementClickable(textMessage);
+
+        verifyIsElementClickable(textMessage);  // assert the action
         inputInfo(textMessage, message + faker.letterify("HelloWorld") );
 
 
     }
     public void clickOnSubmitButton(){
-        verifyIsElementDisplayed(submitButton);
-        verifyElementText(submitButton, "Submit");
-        verifyIsElementClickable(submitButton);
+
+        verifyIsElementClickable(submitButton);  // assert the action
         clickElement(submitButton);
     }
 

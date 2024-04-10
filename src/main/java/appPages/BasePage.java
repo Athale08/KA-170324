@@ -119,8 +119,17 @@ public class BasePage {
         Assert.assertEquals(driver.findElement(by).getText(), expectedResult);
     }
 
+    // In order to fetch the attribute of an element we need to create a new assertion as below.
+    // This will help for hint text elements like we have done for the Placeholder attribute.
+    public void verifyAttributePlaceholderText(By by, String expectedResult){
+
+        Assert.assertEquals(driver.findElement(by).getAttribute("placeholder"), expectedResult);
+    }
+
     public void verifyIsElementClickable(By by){
         Assert.assertTrue(driver.findElement(by).isEnabled());
     }
+
+
 
 }
