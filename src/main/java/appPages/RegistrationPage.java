@@ -35,6 +35,8 @@ public class RegistrationPage extends BasePage {
     private By textMobileNumber = By.xpath("//input[@data-qa='mobile_number']");
     private By buttonCreateAccount = By.xpath("//button[@data-qa='create-account']");
 
+    private By successMessage = By.xpath("//b[text()='Account Created!']");
+
     // Below we will create a specific method to assert verification
         public void assertRegistrationPageElements(){
             verifyIsElementDisplayed(textUsername);
@@ -179,5 +181,8 @@ public class RegistrationPage extends BasePage {
     }
 
 
+    public void checkIsAccountCreated(String expectedMessage){
+            verifyElementText(successMessage,expectedMessage);
+    }
 
 }

@@ -50,6 +50,14 @@ public class HomePage extends BasePage {
 
     }
 
+    public void checkIsUserOnHomePage(String exepectedTitle){
+
+     assertTitle(exepectedTitle);
+
+    }
+
+
+
 
 
 }

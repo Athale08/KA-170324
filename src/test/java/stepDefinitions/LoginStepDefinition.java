@@ -53,4 +53,12 @@ public class LoginStepDefinition {
     public void verifyLoginElements() {
      loginPage.verifyLoginElementsAndTexts();
     }
+
+
+
+ @And("verify the title of sign up header as {string}")
+ public void verifyTheTitleOfSignUpHeaderAs(String expectedTitle) {
+
+     loginPage.checkTheSignUpTitle(expectedTitle);
+ }
 }
