@@ -38,10 +38,12 @@ public class RegistrationStepDefinition {
     public void user_click_on_create_account_button() {
 
     }
-    @Then("user should be able to view the account creation confirmation")
-    public void user_should_be_able_to_view_the_account_creation_confirmation() {
 
+
+
+    @Then("user should be able to view the account creation confirmation as {string}")
+    public void userShouldBeAbleToViewTheAccountCreationConfirmationAs(String expectedMessage) {
+
+        registrationPage.checkIsAccountCreated(expectedMessage);
     }
-
-
 }

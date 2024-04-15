@@ -19,15 +19,26 @@ import org.apache.poi.ss.util.NumberToTextConverter;
 public class ExcelReader {
 
 
+	// This method is to read the excel file path where it is available and to create workbook object for future use
 	private Workbook getWorkBook(String excelFilePath) throws IOException, InvalidFormatException {
 		return WorkbookFactory.create(new File(excelFilePath));
 	}
 
+	// XSSFWorkbbok workbook = new XSSFWorkbook(fileinputStream)
+	// Workbook workbook = WorkbookGFactory.create(path);
+
+	// XSSSFWorkbbok  == WorkbookFactory
+	// XSSFSheet   Sheet
+
+
+	// This method is used to access specific sheet from the multiple sheets of workbook using namne of the sheet
 	private Sheet getSheetByName(String excelFilePath, String sheetName) throws IOException, InvalidFormatException {
 		Sheet sheet = getWorkBook(excelFilePath).getSheet(sheetName);
 		return sheet;
 	}
 
+
+	// This method is used to access specific sheet from the multiple sheets of workbook using index of sheet
 	private Sheet getSheetByIndex(String excelFilePath, int sheetNumber) throws IOException, InvalidFormatException {
 		Sheet sheet = getWorkBook(excelFilePath).getSheetAt(sheetNumber);
 		return sheet;

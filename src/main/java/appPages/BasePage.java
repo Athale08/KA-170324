@@ -1,9 +1,11 @@
  package appPages;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 
+import java.time.Duration;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 public class BasePage {
@@ -15,16 +17,22 @@ public class BasePage {
     }
 
     public void clickElement(By by) {
+
+        fluentWait(by);
         driver.findElement(by).click();
     }
 
     public void clickElementUsingJs(By by) {
+
+        waitUntilElementIsClickable(by);
         WebElement element = driver.findElement(by);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", element);
     }
 
     public void inputInfo(By by, String input) {
+
+
         driver.findElement(by).sendKeys(input);
     }
 
@@ -130,6 +138,41 @@ public class BasePage {
         Assert.assertTrue(driver.findElement(by).isEnabled());
     }
 
+
+
+    public void waitUntilElementIsClickable(By by){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait.until(ExpectedConditions.elementToBeClickable(by));
+
+    }
+
+    public void waitUntilElementIsDisplayed(By by){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+
+    public void fluentWait(By by){
+
+        FluentWait wait = new FluentWait(driver);
+        wait.withTimeout(Duration.ofSeconds(100));  // threshold is 100 seconds
+
+        wait.pollingEvery(Duration.ofSeconds(2));  // 2 | 2 | 2 |
+        wait.ignoring(NoSuchElementException.class);
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+    //sum(int a, int b) ===> sum(2,3)
+    //sum(int a , int b, int c) ==> sum(2,3,4)
+    // sum(int a , int b, int c , int d) ==> sum(2,3,4,5)
+
+
+    public void assertTitle(String expectedResult){
+
+        Assert.assertEquals(driver.getTitle(),expectedResult);
+    }
 
 
 }

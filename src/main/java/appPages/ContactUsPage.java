@@ -7,6 +7,12 @@ import org.openqa.selenium.WebDriver;
 
 public class ContactUsPage extends BasePage {
 
+
+    /*
+    * Author: Kishor Athale
+    * Modules: ContactUs Page
+    * Changes: This class contains verification and actions methods which are applicable at contact us page of automation exercise app
+     */
     public WebDriver driver; // create a constructor and webdriver
 
     public ContactUsPage(WebDriver driver){
@@ -23,7 +29,7 @@ public class ContactUsPage extends BasePage {
 
 
 
-    // Below we will create a specific method to assert verification
+    // Verification method to assert all elements available on ContactUs Page
 
     public void assertContactUsPageElements(){
         verifyIsElementDisplayed(contactUsLink);
@@ -35,6 +41,8 @@ public class ContactUsPage extends BasePage {
         verifyIsElementDisplayed(submitButton);
         verifyElementText(submitButton, "Submit");
     }
+
+    // This method is created to input contact us details on Contact Us page to create an account
     public void enterGetInTouchDetails(String name, String email, String subject, String message) {
 
 

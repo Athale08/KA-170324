@@ -15,6 +15,7 @@ import java.util.Map;
 public class LoginStepDefinition {
 
 
+
    LoginPage loginPage = new LoginPage(DriverFactory.getDriver());
 
     @Given("user launches the application")
@@ -31,10 +32,7 @@ public class LoginStepDefinition {
     public void user_click_on_submit_button() {
 
     }
-    @Then("user should be able to login to the app")
-    public void user_should_be_able_to_login_to_the_app() {
 
-    }
 
 
     @And("user enters excel data {string} and {string} and clicks on signup button")
@@ -55,4 +53,12 @@ public class LoginStepDefinition {
     public void verifyLoginElements() {
      loginPage.verifyLoginElementsAndTexts();
     }
+
+
+
+ @And("verify the title of sign up header as {string}")
+ public void verifyTheTitleOfSignUpHeaderAs(String expectedTitle) {
+
+     loginPage.checkTheSignUpTitle(expectedTitle);
+ }
 }
