@@ -1,5 +1,5 @@
 
-# WebBrowser Automation framework using cuucmber and TestNG
+# WebBrowser Automation framework using Cucumber and TestNG
 
 This Project is based on selenium webdriver with Cucumber & TestNG using Java language
 
@@ -9,9 +9,9 @@ This project was developed to automate automation exercise portal scenarios, by 
 Java as programming language
 Cucumber for writing BDD tests using gherkin format
 TestNG for writing runner files that enables executing feature files
-Maven as Build management tool
+Maven as Build management tool- **Need more clarity==========>**
 Apache POI for data driven testing using excel workbook as source
-Cucumber extent adapter to enable the reporting
+Cucumber extent adapter to enable the reporting- **Need more clarity==========>**
 Java Faker library to generate random data for scripts
 
 
@@ -25,14 +25,14 @@ Project Structure
 .github/Workflows: Contain GitHub action yaml files , to execute the scripts on cloud using GitHub actions , where the profile name has to be entered by the user in order to pick up the profile from pom.xml and execute accordingly.
 
 src/main/java
-        ------> drivers ---> This package contains   Driverfactory       class , which basically creates the driver instance , based on the driverType provided and enables parallel execution.
+        ------> drivers ---> This package contains   Driverfactory class , which basically creates the driver instance , based on the driverType provided and enables parallel execution( **Need more clarity==========>**).
        
        
         ------> appPages ---> This package contains all screen classes , where locators and methods applicable at each screen will be implemnted here. Basepage is where all resuable methods will be created.
-        ------> utilities  ---> This package contains utilities like ConfigReader and ExcelReader which are responsible for reading the inout from properties and .xls formats respectively. Constants file is where you can give/edit the access credentials of BrowserStack and SauceLabs.
+        ------> utilities  ---> This package contains utilities like ConfigReader and ExcelReader which are responsible for reading the input from properties and .xls formats respectively. Constants file is where you can give/edit the access credentials of BrowserStack and SauceLabs.
         ------> enums      ---> enums package contain the set of predefined values i.e Constants to enable the Remote/Local execution and also the type of browser for execution.
 
-src/main/resources ===> this package contains the config properties file , from where COnfigReader class fetch the data and utilises for the script execution.
+src/main/resources ===> this package contains the config properties file , from where ConfigReader class fetch the data and utilises for the script execution.
 
  
  
