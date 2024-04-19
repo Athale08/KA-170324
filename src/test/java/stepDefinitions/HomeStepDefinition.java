@@ -4,6 +4,7 @@ import appPages.HomePage;
 import drivers.DriverFactory;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class HomeStepDefinition {
 
@@ -25,5 +26,19 @@ public class HomeStepDefinition {
     public void verifyWhetherUserIsOnHomePageWithTitleAs(String expectedResult) {
 
         homePage.checkIsUserOnHomePage(expectedResult);
+    }
+
+    @Then("user will be logged in as {string}")
+    public void userWillBeLoggedInAs(String name) {
+        homePage.checkUserLoginName(name);
+    }
+
+    @And("user can delete account")
+    public void userCanDeleteAccount() {
+    homePage.clickOnDeleteAccountButton();
+    }
+
+    @Then("user should see the account deletion confirmation")
+    public void userShouldSeeTheAccountDeletionConfirmationAndClickContinueButton() {
     }
 }

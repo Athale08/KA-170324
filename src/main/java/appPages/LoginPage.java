@@ -3,6 +3,11 @@ package appPages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+/*
+ * Author: Kishor Athale
+ * Modules: Login Page
+ * Changes: This class contains verification and actions methods which are applicable at login page of automation exercise app
+ */
 public class LoginPage extends BasePage {
 
     public WebDriver driver;

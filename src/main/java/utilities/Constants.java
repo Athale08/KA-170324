@@ -1,5 +1,5 @@
 package utilities;
-
+// to keep this value and use it when needed to run. Once this is defined it cannot be changed.
 public class Constants {
 
     public static final String BS_USERNAME = "kishorathale_4cqwgb";

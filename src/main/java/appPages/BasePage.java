@@ -7,7 +7,11 @@ import org.testng.Assert;
 import java.time.Duration;
 import java.util.NoSuchElementException;
 import java.util.Set;
-
+///*
+//    * Author: Kishor Athale
+//    * Modules: Base Page
+//    * Changes: This class contains reusable verification and assertion methods which are applicable at all the app pages of automation exercise app
+//     */
 public class BasePage {
 
     public WebDriver driver;
