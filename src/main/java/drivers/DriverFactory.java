@@ -16,10 +16,14 @@ import utilities.Constants;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-
+/*
+ * Author: Kishor Athale
+ * Modules: DriverFactory
+ * Changes: This class contains WebDriver initialization methods for Local and Remote env which are applicable to the automation exercise app
+ */
 public class DriverFactory {
 
-    // parallel execution , thread safety
+    // parallel execution , thread safety( smooth running of code)
 // To make the static WebDriver variable thread safe we will use the ThreadLocal Class in Java.
     public static ThreadLocal<RemoteWebDriver> driverRef = new ThreadLocal<>();
 

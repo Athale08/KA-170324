@@ -10,8 +10,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-        // CucumberOptions will try to read where are your feature files,
-        // and your stepDefinition files are available.
+        // CucumberOptions will try to read where are your feature files and your stepDefinition files are available.
         features = {"src/test/resources/features"},
         glue = {"stepDefinitions","CommonActions"},
         plugin = {"pretty",

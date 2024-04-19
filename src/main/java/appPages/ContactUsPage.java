@@ -48,34 +48,34 @@ public class ContactUsPage extends BasePage {
 
         Faker faker = new Faker();
 
-        verifyIsElementClickable(contactUsLink);   // assert the action
+      //  verifyIsElementClickable(contactUsLink);   // assert the action- these steps are commented as we have verified them above.
         clickElement(contactUsLink);
 
        // driver.findElement(textName).sendKeys(name + faker.name().name());
 
-        verifyIsElementClickable(textName);   // assert the action
+      //  verifyIsElementClickable(textName);   // assert the action
         inputInfo(textName, name + faker.name().name());
 
        // driver.findElement(textEmail).sendKeys(email + faker.name().firstName() + "kishoretraining123@gmail.com");
 
-        verifyIsElementClickable(textEmail);   // assert the action
+      //  verifyIsElementClickable(textEmail);   // assert the action
         inputInfo(textEmail, email + faker.name().firstName() + "kishoretraining123@gmail.com");
 
        // driver.findElement(textSubject).sendKeys(subject);
 
-        verifyIsElementClickable(textSubject);  // assert the action
+        //verifyIsElementClickable(textSubject);  // assert the action
         inputInfo(textSubject, subject);
 
         //driver.findElement(textMessage).sendKeys(message + faker.letterify("HelloWorld"));
 
-        verifyIsElementClickable(textMessage);  // assert the action
+       // verifyIsElementClickable(textMessage);  // assert the action
         inputInfo(textMessage, message + faker.letterify("HelloWorld") );
 
 
     }
     public void clickOnSubmitButton(){
 
-        verifyIsElementClickable(submitButton);  // assert the action
+     //   verifyIsElementClickable(submitButton);  // assert the action
         clickElement(submitButton);
     }
 

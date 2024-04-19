@@ -9,7 +9,11 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import utilities.ConfigReader;
 
 import java.util.Properties;
-
+/*
+ * Author: Kishor Athale
+ * Modules: CommonActions class
+ * Changes: This class contains common actions methods which are applicable before and after a script execution of automation exercise app
+ */
 public class CommonActions {
 
     private DriverFactory driverFactory;

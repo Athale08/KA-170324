@@ -5,6 +5,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
+/*
+ * Author: Kishor Athale
+ * Modules: Registration Page
+ * Changes: This class contains verification and actions methods which are applicable at registration page of automation exercise app
+ */
 public class RegistrationPage extends BasePage {
 
     public WebDriver driver; // create a constructor and webdriver
@@ -24,6 +29,8 @@ public class RegistrationPage extends BasePage {
     private By dropDownDay = By.id("days");
     private By dropDownMonth = By.id("months");
     private By dropDownYear = By.id("years");
+    private By newsLetterCheckbox = By.id("newsletter");
+    private By specialOfferCheckbox = By.id("optin");
     private By textFirstName = By.xpath("//input[@data-qa='first_name']");
     private By textLastName = By.xpath("//input[@data-qa='last_name']");
     private By textAddress = By.xpath("//input[@data-qa='address']");
@@ -36,6 +43,7 @@ public class RegistrationPage extends BasePage {
     private By buttonCreateAccount = By.xpath("//button[@data-qa='create-account']");
 
     private By successMessage = By.xpath("//b[text()='Account Created!']");
+    private By continueButton = By.xpath("//a[@data-qa='continue-button']");
 
     // Below we will create a specific method to assert verification
         public void assertRegistrationPageElements(){
@@ -59,6 +67,7 @@ public class RegistrationPage extends BasePage {
             verifyIsElementDisplayed(textMobileNumber);
             verifyIsElementDisplayed(buttonCreateAccount);
             verifyElementText(buttonCreateAccount, "Create Account");
+            verifyElementText(continueButton, "Continue");
 
                 
     }
@@ -116,6 +125,15 @@ public class RegistrationPage extends BasePage {
 
         verifyIsElementClickable(dropDownYear);
         dropDownElement(dropDownYear, year);
+    }
+
+    public void selectCheckboxElement1(){
+            verifyIsElementClickable(newsLetterCheckbox);
+            clickElement(newsLetterCheckbox);
+    }
+    public void selectCheckboxElement2(){
+            verifyIsElementClickable(specialOfferCheckbox);
+            clickElement(specialOfferCheckbox);
     }
     public void enterAddressInfo(String firstname, String lastname, String address1, String address2) {
         Faker faker1 = new Faker();
@@ -183,6 +201,11 @@ public class RegistrationPage extends BasePage {
 
     public void checkIsAccountCreated(String expectedMessage){
             verifyElementText(successMessage,expectedMessage);
+    }
+
+    public void clickOnContinueButton(){
+            verifyIsElementClickable(continueButton);
+            clickElement(continueButton);
     }
 
 }
