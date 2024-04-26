@@ -8,7 +8,7 @@ Feature: User Registration
     And user enters "<firstname>" and "<lastname>" and "<address1>" and "<address2>"
     And "<country>" and "<state>" and "<city>" and "<zipcode>" and "<mobilenumber>"
     And user click on  create account button
-    Then user should be able to view the account creation confirmation
+    Then user should be able to view the account creation confirmation as "ACCOUNT CREATED!"
 
     Examples:
       | username | emailId | title | password | day | month | year | firstname | lastname | address1 | address2 | country | state | city | zipcode | mobilenumber |

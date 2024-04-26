@@ -31,17 +31,25 @@ public class RegistrationStepDefinition {
 
     @And("user enters {string} and {string} and {string} and {string}")
     public void user_enters_and_and_and(String fname, String lname, String address1, String address2) {
-
+    registrationPage.enterAddressInfo(fname, lname, address1, address2);
     }
 
     @And("{string} and {string} and {string} and {string} and {string}")
     public void and_and_and_and(String country, String state, String city, String zipcode, String mobile) {
+    registrationPage.enterAddressInfoCntd(country, state, city, zipcode, mobile);
+    }
+    @And("Select checkbox 'Sign up for our newsletter!'")
+    public void selectCheckboxSignUpForOurNewsletter() {
+        registrationPage.selectCheckboxElement1();
 
     }
-
+    @And("Select checkbox for 'Receive special offers from our partners!'")
+    public void selectCheckboxForReceiveSpecialOffersFromOurPartners() {
+        registrationPage.selectCheckboxElement2();
+    }
     @And("user click on  create account button")
     public void user_click_on_create_account_button() {
-
+    registrationPage.clickButton();
     }
 
 
@@ -52,15 +60,7 @@ public class RegistrationStepDefinition {
     }
 
 
-    @And("Select checkbox {string}")
-    public void selectCheckboxSignUpForOurNewsletter() {
-        registrationPage.selectCheckboxElement1();
 
-    }
-    @And("Select checkbox for {string}")
-    public void selectCheckboxForReceiveSpecialOffersFromOurPartners() {
-        registrationPage.selectCheckboxElement2();
-    }
 
     @And("user click on continue button")
     public void userClickOnContinueButton() {

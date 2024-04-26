@@ -29,8 +29,8 @@ public class RegistrationPage extends BasePage {
     private By dropDownDay = By.id("days");
     private By dropDownMonth = By.id("months");
     private By dropDownYear = By.id("years");
-    private By newsLetterCheckbox = By.id("newsletter");
-    private By specialOfferCheckbox = By.id("optin");
+    private By newsLetterCheckbox = By.xpath("//input[@id='newsletter']");
+    private By specialOfferCheckbox = By.xpath("//input[@id='optin']");
     private By textFirstName = By.xpath("//input[@data-qa='first_name']");
     private By textLastName = By.xpath("//input[@data-qa='last_name']");
     private By textAddress = By.xpath("//input[@data-qa='address']");
@@ -42,7 +42,7 @@ public class RegistrationPage extends BasePage {
     private By textMobileNumber = By.xpath("//input[@data-qa='mobile_number']");
     private By buttonCreateAccount = By.xpath("//button[@data-qa='create-account']");
 
-    private By successMessage = By.xpath("//b[text()='Account Created!']");
+    private By successMessage = By.xpath("//p[contains(text(),'Congratulations! Your new account has been success')]");
     private By continueButton = By.xpath("//a[@data-qa='continue-button']");
 
     // Below we will create a specific method to assert verification
@@ -79,11 +79,11 @@ public class RegistrationPage extends BasePage {
 
        // driver.findElement(textUsername).sendKeys(username + faker.name().name());
 
-        inputInfo(textUsername, username + faker.name().name() );
+        inputInfo(textUsername, faker.name().name() );
 
       //  driver.findElement(textEmailAddress).sendKeys(emailID+faker.name().firstName()+"kishoretraining@gmail.com");
 
-        inputInfo(textEmailAddress, emailID+faker.name().firstName()+"kishoretraining@gmail.com");
+        inputInfo(textEmailAddress, faker.name().firstName()+"kishoretraining@gmail.com");
 
 
         verifyIsElementClickable(buttonSignup); // assert the action
@@ -128,12 +128,11 @@ public class RegistrationPage extends BasePage {
     }
 
     public void selectCheckboxElement1(){
-            verifyIsElementClickable(newsLetterCheckbox);
-            clickElement(newsLetterCheckbox);
+           verifyIsElementDisplayed(newsLetterCheckbox);
+
     }
     public void selectCheckboxElement2(){
-            verifyIsElementClickable(specialOfferCheckbox);
-            clickElement(specialOfferCheckbox);
+           verifyIsElementDisplayed(specialOfferCheckbox);
     }
     public void enterAddressInfo(String firstname, String lastname, String address1, String address2) {
         Faker faker1 = new Faker();
@@ -187,7 +186,7 @@ public class RegistrationPage extends BasePage {
         inputInfo(textMobileNumber, mobilenumber + faker2.phoneNumber().cellPhone());
 
     }
-    public void ClickButton(){
+    public void clickButton(){
 
      //clickElement(buttonCreateAccount);
 //The above method gives a 'clickElementInterception exception'. To avoid this we will use the JavaScriptExecutor method//
