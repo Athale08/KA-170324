@@ -27,10 +27,11 @@ public class HomePage extends BasePage {
     private By signUpLink = By.xpath("//a[@href='/login']");
     //private By allItems = By.xpath("//div[@class='features_items']");
     //private By everyItem = By.xpath("//div[@class='col-sm-4']");
-    private By loggedInAs = By.xpath("//a[text()='Logged in as']");
+    private By loggedInAs = By.xpath("//a[contains(text(),'Logged in as')]");
     private By deleteAccount = By.xpath("//a[@href='/delete_account']");
     private By accountDeletedPage = By.xpath("//b[text()='Account Deleted!']");
     private By continueButton2 = By.xpath("//a[@data-qa='continue-button']");
+    private By logoutButton = By.xpath("//a[@href='/logout']");
 
     // Below we will create a specific method to assert verification
     public void assertHomePageElements() {
@@ -43,11 +44,16 @@ public class HomePage extends BasePage {
         verifyIsElementDisplayed(loggedInAs);
 
     }
+    public void assertLogoutIsSuccessful(){
+        verifyIsElementDisplayed(logoutButton);
+        verifyIsElementClickable(logoutButton);
+        clickElement(logoutButton);
+    }
 
     public void assertClickDeleteAccountButton() {
-        clickElement(accountDeletedPage);
-        verifyIsElementDisplayed(deleteAccount);
-        verifyElementText(accountDeletedPage, "ACCOUNT DELETED");
+        clickElement(deleteAccount);
+        verifyIsElementDisplayed(accountDeletedPage);
+
     }
 
     public void clickOnContinueButtonAfterDeletingAccount() {

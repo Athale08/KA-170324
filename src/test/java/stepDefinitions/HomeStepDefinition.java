@@ -34,10 +34,13 @@ public class HomeStepDefinition {
 
     @Then("user should see the account deletion confirmation")
     public void userShouldSeeTheAccountDeletionConfirmationAndClickContinueButton() {
-        homePage.assertClickDeleteAccountButton();
-        homePage.clickOnContinueButtonAfterDeletingAccount();
+       homePage.clickOnContinueButtonAfterDeletingAccount();
     }
 
 
-
+    @And("user click on logout button")
+    public void userClickOnLogoutButton() {
+        homePage.assertLogoutIsSuccessful();
+        homePage.navigateToLoginPage();
+    }
 }

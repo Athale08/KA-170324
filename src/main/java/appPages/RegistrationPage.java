@@ -23,6 +23,7 @@ public class RegistrationPage extends BasePage {
     private By textUsername = By.xpath("//input[@data-qa='signup-name']");
     private By textEmailAddress = By.xpath("//input[@data-qa='signup-email']");
     private By buttonSignup = By.xpath("//button[@data-qa='signup-button']");
+    private By signUpErrorMessage = By.xpath("//p[text()='Email Address already exist!']");
     private By labelMr = By.xpath("//label[@for='id_gender1']");
     private By labelMrs = By.xpath("//label[@for='id_gender2']");
     private By textPassword = By.xpath("//input[@data-qa='password']");
@@ -50,6 +51,7 @@ public class RegistrationPage extends BasePage {
             verifyIsElementDisplayed(textUsername);
             verifyIsElementDisplayed(textEmailAddress);
             verifyIsElementDisplayed(buttonSignup);
+            verifyIsElementDisplayed(signUpErrorMessage);
             verifyElementText(buttonSignup, "Signup");
             verifyIsElementDisplayed(labelMr);
             verifyIsElementDisplayed(labelMrs);
@@ -88,6 +90,15 @@ public class RegistrationPage extends BasePage {
 
         verifyIsElementClickable(buttonSignup); // assert the action
         clickElement(buttonSignup);
+    }
+    public void signUpWithExistingEmailAddress(String username1, String emailId1){
+            inputInfo(textUsername, username1);
+            inputInfo(textEmailAddress, emailId1);
+            verifyIsElementClickable(buttonSignup); // assert the action
+            clickElement(buttonSignup);
+    }
+    public void assertSignUpErrorMessage(String expectedErrorMessage){
+            verifyElementText(signUpErrorMessage, expectedErrorMessage);
     }
 
 

@@ -22,6 +22,15 @@ public class RegistrationStepDefinition {
     public void user_enters_and_and_clicks_on_signup_button(String username, String emailId) {
         registrationPage.enterSignUpDetails(username, emailId);
     }
+    @And("user enters already registered {string} and {string} and clicks on signup button")
+    public void userEntersAlreadyRegisteredAndAndClicksOnSignupButton(String username1, String emailId1) {
+        registrationPage.signUpWithExistingEmailAddress(username1, emailId1);
+    }
+    @Then("Verify error {string} is visible")
+    public void verifyErrorEmailAddressAlreadyExistIsVisible(String expectedErrorMessage) throws InterruptedException {
+    registrationPage.assertSignUpErrorMessage(expectedErrorMessage);
+        Thread.sleep(5000);
+    }
 
     @And("user enters {string} and {string} and {string} and {string} and {string}")
     public void user_enters_and_and_and_and(String title, String password, String day, String month, String year) throws InterruptedException {
@@ -59,11 +68,11 @@ public class RegistrationStepDefinition {
         registrationPage.checkIsAccountCreated(expectedMessage);
     }
 
-
-
-
     @And("user click on continue button")
     public void userClickOnContinueButton() {
     registrationPage.clickOnContinueButton();
     }
+
+
+
 }
