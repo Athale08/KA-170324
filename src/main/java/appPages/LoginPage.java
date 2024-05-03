@@ -27,6 +27,7 @@ public class LoginPage extends BasePage {
     private By loginLable = By.xpath("//h2[text()='Login to your account']");
 
     private By  signUpHeader = By.xpath("//h2[text()='New User Signup!']");
+    private By invalidLoginInputValidationText = By.xpath("//p[text()='Your email or password is incorrect!']");
 
 
 
@@ -63,11 +64,16 @@ public class LoginPage extends BasePage {
 
         verifyIsElementClickable(buttonLogin);  // this is action assertion
         clickElement(buttonLogin);
+
     }
 
     public void checkTheSignUpTitle(String expectedTitle){
 
         verifyElementText(signUpHeader,expectedTitle);
+    }
+    public void verifyInvalidLoginInput(String expectedTitle){
+        verifyIsElementDisplayed(invalidLoginInputValidationText);
+
     }
 
 

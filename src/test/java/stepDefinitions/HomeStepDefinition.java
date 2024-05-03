@@ -23,7 +23,7 @@ public class HomeStepDefinition {
 
     @Then("user should be logged in the app")
     public void userShouldBeLoggedInTheApp() {
-
+    homePage.assertLoginIsSuccessful();
     }
 
 
@@ -34,9 +34,13 @@ public class HomeStepDefinition {
 
     @Then("user should see the account deletion confirmation")
     public void userShouldSeeTheAccountDeletionConfirmationAndClickContinueButton() {
-        homePage.assertClickDeleteAccountButton();
+       homePage.clickOnContinueButtonAfterDeletingAccount();
     }
 
 
-
+    @And("user click on logout button")
+    public void userClickOnLogoutButton() {
+        homePage.assertLogoutIsSuccessful();
+        homePage.navigateToLoginPage();
+    }
 }
