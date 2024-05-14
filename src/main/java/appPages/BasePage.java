@@ -11,7 +11,9 @@ import java.util.Set;
 ///*
 //    * Author: Kishor Athale
 //    * Modules: Base Page
-//    * Changes: This class contains reusable verification and assertion methods which are applicable at all the app pages of automation exercise app
+//    * Changes: This class contains reusable verification and assertion methods which are applicable at all
+//    the app pages of automation exercise app. Web elements handling related methods are created here that
+//    can be used across the classes.
 //     */
 public class BasePage {
 
@@ -41,14 +43,17 @@ public class BasePage {
         driver.findElement(by).sendKeys(input);
     }
 
-    public void dropDownElement(By by, String value) {
-        Select dropDown = new Select(driver.findElement(by));
-        dropDown.selectByVisibleText(value);
-    }
 
+    public void dropDownElement(By by, String value) {     // here we are creating a method with 2 params
+        Select dropDown = new Select(driver.findElement(by));// here we are creating a object to which the string value is passed at run time
+        dropDown.selectByVisibleText(value); // verification is done
+    }
+//Alerts: Simple alert(message): Display a popup box with the specified message with the OK button.
+// confirm(message): Display a popup box with the specified message with OK and Cancel buttons.
+// prompt(message, defaultValue): Display a popup box to take the user's input with the OK and Cancel buttons.
     // The below method can be used to handle Simple and Confirmation Alerts
-    public void handleAlert(String decision) {
-        Alert alert = driver.switchTo().alert(); // here we are ca[turing the alert by using Alert class in Selenium
+    public void handleAlert(String decision) { // only thing that is imp here is that the alert is available or not
+        Alert alert = driver.switchTo().alert(); // here we are capturing the alert by using Alert class in Selenium
         if (decision.equals("accept")) {
             alert.accept();
         } else {
