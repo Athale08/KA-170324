@@ -24,6 +24,7 @@ public class HomePage extends BasePage {
 
 
     private By homePageTitle = By.xpath("//span[text()='Automation']");
+    private By contactUsLink = By.xpath("//a[@href='/contact_us']");
     private By signUpLink = By.xpath("//a[@href='/login']");
     //private By allItems = By.xpath("//div[@class='features_items']");
     //private By everyItem = By.xpath("//div[@class='col-sm-4']");
@@ -38,6 +39,10 @@ public class HomePage extends BasePage {
         verifyIsElementDisplayed(signUpLink); // this will verify if the element is displayed
         verifyElementText(signUpLink, "Signup / Login");  //this will assert that the text is as expected
         verifyIsElementDisplayed(homePageTitle);
+    }
+    public void clickOnContactUsButton(){
+        verifyIsElementDisplayed(contactUsLink);
+        clickElement(contactUsLink);
     }
 
     public void assertLoginIsSuccessful() {

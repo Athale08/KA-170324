@@ -11,7 +11,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
 
-        features = {"src/test/resources/features/TC5SignUpWithRegisteredEmail.feature"},
+        features = {"src/test/resources/features/TC6ContactUsForm-OKTest.feature"},
         glue = {"stepDefinitions","CommonActions"},
         plugin = {"pretty",
 

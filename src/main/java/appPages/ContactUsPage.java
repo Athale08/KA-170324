@@ -17,15 +17,17 @@ public class ContactUsPage extends BasePage {
 
     public ContactUsPage(WebDriver driver){
         super(driver);
-        this.driver = driver;
+        this.driver = driver; // this keyword is used to call the instance members of the current class
     }
 // locate the elements
     private By contactUsLink = By.xpath("//a[@href='/contact_us']");
+    private By textHeader = By.xpath("//h2[normalize-space()='Get In Touch']");
     private By textName = By.xpath("//input[@data-qa='name']");
     private By textEmail = By.xpath("//input[@data-qa='email']");
     private By textSubject = By.xpath("//input[@data-qa='subject']");
     private By textMessage = By.id("message");
     private By submitButton = By.xpath("//input[@data-qa='submit-button']");
+    private By homeButton1 = By.xpath("//span[normalize-space()='Home']");
 
 
 
@@ -34,12 +36,15 @@ public class ContactUsPage extends BasePage {
     public void assertContactUsPageElements(){
         verifyIsElementDisplayed(contactUsLink);
         verifyElementText(contactUsLink, "Contact us");
+        verifyElementText(textHeader,"GET IN TOUCH");
         verifyIsElementDisplayed(textName);
         verifyIsElementDisplayed(textEmail);
         verifyIsElementDisplayed(textSubject);
         verifyIsElementDisplayed(textMessage);
         verifyIsElementDisplayed(submitButton);
         verifyElementText(submitButton, "Submit");
+        verifyIsElementDisplayed(homeButton1);
+
     }
 
     // This method is created to input contact us details on Contact Us page to create an account
@@ -73,12 +78,28 @@ public class ContactUsPage extends BasePage {
 
 
     }
-    public void clickOnSubmitButton(){
+    public void clickOnSubmitButton() {
 
-     //   verifyIsElementClickable(submitButton);  // assert the action
+        //   verifyIsElementClickable(submitButton);  // assert the action
         clickElement(submitButton);
+
     }
+    public void acceptAlert(){
+        handleAlert("accept");
+        String formConfMsg = "Success! Your details have been submitted successfully";
+        System.out.println(formConfMsg);
 
+    }
+    public void dismissAlert(){
+        handleAlert("dismiss");
+        verifyElementText(textHeader,"GET IN TOUCH");
 
-
+    }
+    public void clickOnHomeButton(){
+        clickElement(homeButton1);
+    }
 }
+
+
+
+
