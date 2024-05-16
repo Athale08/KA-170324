@@ -4,11 +4,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
-
+// this class is created to read the parameters provided in config.properties file
 public class ConfigReader {
 
 
-    private Properties prop; // definition// definition of the Properties class
+    private Properties prop; // definition// definition of the Properties class- inbuilt java class used to read the .properties files.
 
     public Properties getProperties(){
 
@@ -24,7 +24,7 @@ public class ConfigReader {
         }
 
         catch(FileNotFoundException e){
-            e.printStackTrace();
+            e.printStackTrace();       // this will print the details about the exception
         }
         catch (IOException e){
             e.printStackTrace();

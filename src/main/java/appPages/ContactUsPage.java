@@ -17,7 +17,7 @@ public class ContactUsPage extends BasePage {
 
     public ContactUsPage(WebDriver driver){
         super(driver);
-        this.driver = driver;
+        this.driver = driver; // this keyword is used to call the instance members of the current class
     }
 // locate the elements
     private By contactUsLink = By.xpath("//a[@href='/contact_us']");

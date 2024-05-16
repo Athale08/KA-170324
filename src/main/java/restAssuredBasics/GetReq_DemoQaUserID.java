@@ -1,9 +1,4 @@
 package restAssuredBasics;
-
-import io.restassured.response.Response;
-
-import static io.restassured.RestAssured.given;
-
 /* For any request to perform we need:
 1. Base URL/URI
 2. End Point
@@ -15,25 +10,29 @@ import static io.restassured.RestAssured.given;
 given()- this includes the preparation request information like- baseurl, path params, query params, headers, body etc
 when()= this is action you perform using the endpoint
 then()= this is where verification or assertion is done
+ /*API TEST 6: Post To Search Product
+ API URL: https://demoqa.com/swagger/#/Account/AccountV1UserByUserIdGet
+Request Method: GET
+Request Parameter:
+Response Code: 200
+Response JSON: Searched products list
  */
-/*API5: PUT to all brands list
-API URL: https://automationexercise.com/api/brandsList
-Request Method: PUT
-Response Code: 405
-Response Message: This request method is not supported.
- */
-public class PutReq_ToAllBrandsList {
-    public static void main(String[] args){
 
-        String baseURI= "https://automationexercise.com";
-        String endPoint = "/api/brandsList";
+import io.restassured.response.Response;
+
+import static io.restassured.RestAssured.given;
+
+public class GetReq_DemoQaUserID {
+    public static void main(String[] args) {
+        String baseURI = "https://demoqa.com/swagger/#/";
+        String endPoint = "/Account/v1/User/{UUID}";
 
         Response response = given()
                 .baseUri(baseURI)
-                .put(endPoint);
+                .pathParam("UserId","UUID")
+                .when()
+                .get(endPoint);
         response.then().statusCode(200);
         System.out.println(response.prettyPrint());
-
-
     }
 }

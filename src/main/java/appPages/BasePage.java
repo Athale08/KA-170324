@@ -33,7 +33,8 @@ public class BasePage {
 
         waitUntilElementIsClickable(by);
         WebElement element = driver.findElement(by);
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) driver; // this is an interface with the combination of
+        // webdriver object that be used to execute methods like clicking on an element without scrolling
         js.executeScript("arguments[0].click();", element);
     }
 
