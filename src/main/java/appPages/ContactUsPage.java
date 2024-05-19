@@ -107,6 +107,12 @@ public class ContactUsPage extends BasePage {
         clickElement(homeButton1);
         driver.get(driver.getCurrentUrl());
     }
+
+    public void verifygetInTouchHeader(String expectedTitle){
+
+        verifyElementContainsText(textHeader,expectedTitle);
+
+    }
 }
 
 
