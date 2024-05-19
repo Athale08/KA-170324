@@ -20,7 +20,9 @@ public class ContactUsStepDefinition {
     }
     @And("Verify {string} is visible")
     public void verifyGETINTOUCHIsVisible(String title) {
-        contactUsPage.assertContactUsPageElements();
+
+
+        contactUsPage.verifygetInTouchHeader(title);
 
     }
     @And("user enters the {string} and {string} and {string} and {string}")

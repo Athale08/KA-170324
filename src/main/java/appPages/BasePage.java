@@ -192,4 +192,16 @@ public class BasePage {
     }
 
 
+    //Verifying element getText for dom elements
+    public void verifyElementContainsText(By by, String expectedResult){
+        waitUntilElementIsDisplayed(by);
+        if(driver.findElement(by).getAttribute("textContent").trim().contains(expectedResult)){
+            Assert.assertTrue(true);
+        }
+        else{
+            Assert.assertTrue(false);
+        }
+
+    }
+
 }
