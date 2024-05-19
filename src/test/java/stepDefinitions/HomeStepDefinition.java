@@ -12,7 +12,7 @@ public class HomeStepDefinition {
 
     @And("verify whether user is on home page with title as {string}")
     public void verifyWhetherUserIsOnHomePageWithTitleAs(String ExpectedTitle) {
-        homePage.assertHomePageElements();
+        homePage.verifyHomePageTitle(ExpectedTitle);
     }
     @Given("user is on login page")
     public void user_is_on_login_page() {
@@ -43,4 +43,6 @@ public class HomeStepDefinition {
         homePage.assertLogoutIsSuccessful();
         homePage.navigateToLoginPage();
     }
+
+
 }

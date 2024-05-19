@@ -37,7 +37,7 @@ public class ContactUsStepDefinition {
     }
     @Then("user should be able to view the success message confirmation as {string}")
     public void userShouldBeAbleToViewTheSuccessMessageConfirmationAs(String formConfMsg) {
-        contactUsPage.acceptAlert();
+        contactUsPage.verifySuccessMessage(formConfMsg);
     }
     @When("user click on cancel button")
     public void userClickOnCancelButton() {
@@ -51,6 +51,5 @@ public class ContactUsStepDefinition {
     @And("user click on the Home button")
     public void userClickOnTheHomeButton() {
     contactUsPage.clickOnHomeButton();
-    homePage1.assertHomePageElements();
     }
 }

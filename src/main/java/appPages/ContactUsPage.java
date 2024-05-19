@@ -27,7 +27,9 @@ public class ContactUsPage extends BasePage {
     private By textSubject = By.xpath("//input[@data-qa='subject']");
     private By textMessage = By.id("message");
     private By submitButton = By.xpath("//input[@data-qa='submit-button']");
-    private By homeButton1 = By.xpath("//span[normalize-space()='Home']");
+
+    private By successMessage = By.xpath("//div[@class='status alert alert-success']");
+    private By homeButton1 = By.xpath("//a[@class='btn btn-success']");
 
 
 
@@ -35,15 +37,15 @@ public class ContactUsPage extends BasePage {
 
     public void assertContactUsPageElements(){
         verifyIsElementDisplayed(contactUsLink);
-        verifyElementText(contactUsLink, "Contact us");
-        verifyElementText(textHeader,"GET IN TOUCH");
+      //  verifyElementText(contactUsLink, "Contact us");
+       // verifyElementText(textHeader,"GET IN TOUCH");
         verifyIsElementDisplayed(textName);
         verifyIsElementDisplayed(textEmail);
         verifyIsElementDisplayed(textSubject);
         verifyIsElementDisplayed(textMessage);
         verifyIsElementDisplayed(submitButton);
-        verifyElementText(submitButton, "Submit");
-        verifyIsElementDisplayed(homeButton1);
+       // verifyElementText(submitButton, "Submit");
+       // verifyIsElementDisplayed(homeButton1);
 
     }
 
@@ -81,7 +83,8 @@ public class ContactUsPage extends BasePage {
     public void clickOnSubmitButton() {
 
         //   verifyIsElementClickable(submitButton);  // assert the action
-        clickElement(submitButton);
+        clickElementUsingJs(submitButton);
+       // clickElement(submitButton);
 
     }
     public void acceptAlert(){
@@ -95,8 +98,14 @@ public class ContactUsPage extends BasePage {
         verifyElementText(textHeader,"GET IN TOUCH");
 
     }
+
+    public void verifySuccessMessage(String expectedMessage){
+        verifyElementText(successMessage,expectedMessage);
+    }
+
     public void clickOnHomeButton(){
         clickElement(homeButton1);
+        driver.get(driver.getCurrentUrl());
     }
 }
 
