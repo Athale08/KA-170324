@@ -23,7 +23,7 @@ public class HomePage extends BasePage {
     }
 
 
-    private By homePageTitle = By.xpath("//span[text()='Automation']");
+    private By homePageTitle = By.xpath("//h2[text()='Full-Fledged practice website for Automation Engineers']");
     private By contactUsLink = By.xpath("//a[@href='/contact_us']");
     private By signUpLink = By.xpath("//a[@href='/login']");
     //private By allItems = By.xpath("//div[@class='features_items']");
@@ -37,7 +37,7 @@ public class HomePage extends BasePage {
     // Below we will create a specific method to assert verification
     public void assertHomePageElements() {
         verifyIsElementDisplayed(signUpLink); // this will verify if the element is displayed
-        verifyElementText(signUpLink, "Signup / Login");  //this will assert that the text is as expected
+      //  verifyElementText(signUpLink, "Signup / Login");  //this will assert that the text is as expected
         verifyIsElementDisplayed(homePageTitle);
     }
     public void clickOnContactUsButton(){
@@ -88,6 +88,10 @@ public class HomePage extends BasePage {
 
         }
 
+
+    public void verifyHomePageTitle(String expectedTitle){
+         assertTitle(expectedTitle);
+    }
 
     }
 

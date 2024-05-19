@@ -40,7 +40,7 @@ public class BasePage {
 
     public void inputInfo(By by, String input) {
 
-
+        waitUntilElementIsDisplayed(by);
         driver.findElement(by).sendKeys(input);
     }
 
@@ -54,6 +54,7 @@ public class BasePage {
 // prompt(message, defaultValue): Display a popup box to take the user's input with the OK and Cancel buttons.
     // The below method can be used to handle Simple and Confirmation Alerts
     public void handleAlert(String decision) { // only thing that is imp here is that the alert is available or not
+
         Alert alert = driver.switchTo().alert(); // here we are capturing the alert by using Alert class in Selenium
         if (decision.equals("accept")) {
             alert.accept();
@@ -129,12 +130,12 @@ public class BasePage {
      Good practice is to write some generic assertions using TestNG.
          */
     public void verifyIsElementDisplayed(By by){
-
+        waitUntilElementIsDisplayed(by);
         Assert.assertTrue(driver.findElement(by).isDisplayed());
     }
 
     public void verifyElementText(By by, String expectedResult){
-
+        waitUntilElementIsDisplayed(by);
         Assert.assertEquals(driver.findElement(by).getText(), expectedResult);
     }
 
@@ -181,8 +182,13 @@ public class BasePage {
 
 
     public void assertTitle(String expectedResult){
-
-        Assert.assertEquals(driver.getTitle(),expectedResult);
+        try {
+            Thread.sleep(3000);
+            Assert.assertEquals(driver.getTitle(), expectedResult);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
