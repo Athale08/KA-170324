@@ -23,8 +23,7 @@ public class CommonActions {
     private Properties properties;
 
 
-//new change is done
-    // more changes are made
+
 
     @Before
     public void openBrowser(){

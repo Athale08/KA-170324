@@ -13,7 +13,8 @@ Feature: Validation of Contact Us Form
     Then verify whether user is on home page with title as "Automation Exercise"
 
 # Failure reasons
- # ====> getText() to be used only when element in the dom having text inside the tags eg: <button input="sfdf">Prashanth<button>
+ # ====> getText() to be used only when element in the dom having text inside the tags eg: <p>We really appreciate your response to our website.<p>
+ # ====> if the text is in between the dom elements then you would need to use getAttribute().trim()
  # ====> performing verify elements , all at one eg: verifying home page element , on contactus page
  # ====> wrong references taken in the
  # ====> when some value is being taken as reference in feature file , make use of mandatorily

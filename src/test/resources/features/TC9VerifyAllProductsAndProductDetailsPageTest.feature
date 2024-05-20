@@ -16,3 +16,10 @@ Feature: To validate Products Page
 
 
 
+# ientify the elemnets on home page for 'Products' button and create a method on home page to click on this button
+  # create a productsPage in appPages, locate the element All Products and create a method to verify the title as all products.
+  # copy the method and locatorss from Homepage in the products page under a new method to verifyall list
+ # Then create a method to click on 1st product and locate this element
+  #create method to verifyproductdetail page
+  #create method for verifydetails and locate these elements
+ # action first and then verification
