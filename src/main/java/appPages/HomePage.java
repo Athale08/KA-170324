@@ -9,7 +9,8 @@ import java.util.List;
 /*
  * Author: Kishor Athale
  * Modules: Home Page
- * Changes: This class contains verification and actions methods which are applicable at Home page of automation exercise app
+ * Changes: This class contains verification and actions methods which are applicable at Home page
+ * of automation exercise app
  */
 public class HomePage extends BasePage {
 
@@ -65,14 +66,16 @@ public class HomePage extends BasePage {
         verifyIsElementClickable(continueButton2);
         clickElement(continueButton2);
     }
-        // two methods need to be created for logged in as and delete account. Actions first and then assertions.
+        // two methods need to be created for logged in as and delete account. Actions first and
+        // then assertions.
         // Below we will create a specific method to assert the action that we perform
         public void navigateToLoginPage() {
 
        /*WebElement allItemsDiv = driver.findElement(allItems); // here we have captured the outer Division
-       List<WebElement> allItems = allItemsDiv.findElements(everyItem); // here we are capturing all the items under the outer division
-//  below we will iterate through all the elements
-       for(WebElement element : allItems){
+       List<WebElement> allItems = allItemsDiv.findElements(everyItem); // here we are capturing all
+       the items under the outer division.
+       //  below we will iterate through all the elements
+        for(WebElement element : allItems){
 
            WebElement individualItem = element.findElement(By.xpath("//div[@class='overlay-content']"));
 

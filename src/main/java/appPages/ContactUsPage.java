@@ -16,12 +16,12 @@ public class ContactUsPage extends BasePage {
     public WebDriver driver; // create a constructor and webdriver
 
     public ContactUsPage(WebDriver driver){
-        super(driver);
-        this.driver = driver; // this keyword is used to call the instance members of the current class
+        super(driver); // here 'super' keyword is used to call the parent class constructor.
+        this.driver = driver; // this keyword is used to call the instance members of the current class. 'this' means the object ref.
     }
 // locate the elements
     private By contactUsLink = By.xpath("//a[@href='/contact_us']");
-    private By textHeader = By.xpath("//h2[normalize-space()='Get In Touch']");
+    private By textHeader = By.xpath("(//h2[@class=\"title text-center\"])[2]");
     private By textName = By.xpath("//input[@data-qa='name']");
     private By textEmail = By.xpath("//input[@data-qa='email']");
     private By textSubject = By.xpath("//input[@data-qa='subject']");
@@ -38,7 +38,7 @@ public class ContactUsPage extends BasePage {
     public void assertContactUsPageElements(){
         verifyIsElementDisplayed(contactUsLink);
       //  verifyElementText(contactUsLink, "Contact us");
-       // verifyElementText(textHeader,"GET IN TOUCH");
+       // verifyElementText(textHeader,"GET IN TOUCH");  // do not hardcode any value at page level
         verifyIsElementDisplayed(textName);
         verifyIsElementDisplayed(textEmail);
         verifyIsElementDisplayed(textSubject);
@@ -95,7 +95,7 @@ public class ContactUsPage extends BasePage {
     }
     public void dismissAlert(){
         handleAlert("dismiss");
-        verifyElementText(textHeader,"GET IN TOUCH");
+
 
     }
 
@@ -108,7 +108,7 @@ public class ContactUsPage extends BasePage {
         driver.get(driver.getCurrentUrl());
     }
 
-    public void verifygetInTouchHeader(String expectedTitle){
+    public void verifyGetInTouchHeader(String expectedTitle){
 
         verifyElementContainsText(textHeader,expectedTitle);
 

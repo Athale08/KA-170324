@@ -19,7 +19,8 @@ import java.util.Map;
 /*
  * Author: Kishor Athale
  * Modules: DriverFactory
- * Changes: This class contains WebDriver initialization methods for Local and Remote env which are applicable to the automation exercise app
+ * Changes: This class contains WebDriver initialization methods for Local and Remote env which
+ * are applicable to the automation exercise app
  */
 public class DriverFactory {
 

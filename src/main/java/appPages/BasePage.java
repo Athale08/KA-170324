@@ -21,7 +21,7 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-    }
+    } // 'this' keyword is used to invoke the current class instance members. this is also same as the object ref.
 
     public void clickElement(By by) {
 

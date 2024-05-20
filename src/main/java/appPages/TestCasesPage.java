@@ -20,7 +20,7 @@ import org.openqa.selenium.WebDriver;
 
     // locate the elements
     private By testCaseButton = By.xpath("//a[@href='/test_cases']");
-    private By testCaseTitle = By.xpath("//b[text()='Test Cases']");
+    private By testCaseTitle = By.xpath("//b[contains(text(),'Test Cases')]");
 
 
     // Verification method to assert all elements available on this page
@@ -28,13 +28,17 @@ import org.openqa.selenium.WebDriver;
     public void assertTestCasePageElements(){
 
         verifyIsElementDisplayed(testCaseButton);
+        verifyIsElementClickable(testCaseButton);
 
 
     }
-
     public void clickOnTestCaseButton(){
         clickElement(testCaseButton);
-        verifyElementText(testCaseTitle, "TEST CASES");
+
+    }
+    public void verifyTestCasesHeader(String expectedTitle){
+        verifyElementContainsText(testCaseTitle, expectedTitle);
+
     }
 
 }

@@ -20,9 +20,7 @@ public class ContactUsStepDefinition {
     }
     @And("Verify {string} is visible")
     public void verifyGETINTOUCHIsVisible(String title) {
-
-
-        contactUsPage.verifygetInTouchHeader(title);
+        contactUsPage.verifyGetInTouchHeader(title);
 
     }
     @And("user enters the {string} and {string} and {string} and {string}")
@@ -46,8 +44,8 @@ public class ContactUsStepDefinition {
         contactUsPage.dismissAlert();
     }
     @Then("verify user stays on the same page and {string} is visible")
-    public void verifyUserStaysOnTheSamePageAndGETINTOUCHIsVisible() {
-        contactUsPage.dismissAlert();
+    public void verifyUserStaysOnTheSamePageAndGETINTOUCHIsVisible(String expectedTitle) {
+        contactUsPage.verifyGetInTouchHeader(expectedTitle);
     }
 
     @And("user click on the Home button")
