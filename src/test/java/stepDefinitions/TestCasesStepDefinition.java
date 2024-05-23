@@ -11,9 +11,10 @@ public class TestCasesStepDefinition {
     TestCasesPage testCasesPage = new TestCasesPage(DriverFactory.getDriver());
 
     @And("user click on {string} button")
-    public void userClickOnButton() {
+    public void userClickOnButton(String title) {
+        testCasesPage.assertTestCasePageElements(title);
         testCasesPage.clickOnTestCaseButton();
-        testCasesPage.assertTestCasePageElements();
+
 
     }
     @Then("verify if the user is navigated to the Test Cases page with the title as {string}")

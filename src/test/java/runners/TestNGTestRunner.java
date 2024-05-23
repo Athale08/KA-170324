@@ -13,6 +13,7 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
 
         features = {"src/test/resources/features/TC7ContactUsForm-CancelTest.feature"},// here you add the source of the feature file you wish to run.
+      //  features = {"src/test/resources/features/"} // when you want to run specific feature files
         glue = {"stepDefinitions","CommonActions"}, //source of stepdefinition and common actions
         plugin = {"pretty",
 
@@ -21,6 +22,9 @@ import org.testng.annotations.DataProvider;
                 "timeline:test-output-thread/" // plugin is the source which generates the extent reports.
 
         }
+        //, give a comma after the plugin and write the below tags
+
+     //   tags = "@Test1"   // so the feature files with @Test1 will run
 
 
 )

@@ -77,28 +77,24 @@ public class ContactUsPage extends BasePage {
 
        // verifyIsElementClickable(textMessage);  // assert the action
         inputInfo(textMessage, message + faker.letterify("HelloWorld") );
-
-
     }
     public void clickOnSubmitButton() {
 
         //   verifyIsElementClickable(submitButton);  // assert the action
         clickElementUsingJs(submitButton);
        // clickElement(submitButton);
-
     }
-    public void acceptAlert(){
+    public void acceptAlert() throws InterruptedException {
+        Thread.sleep(3000);
         handleAlert("accept");
         String formConfMsg = "Success! Your details have been submitted successfully";
         System.out.println(formConfMsg);
-
     }
-    public void dismissAlert(){
+    public void dismissAlert() throws InterruptedException {
+        Thread.sleep(3000);
         handleAlert("dismiss");
-
-
+        Thread.sleep(4000);
     }
-
     public void verifySuccessMessage(String expectedMessage){
         verifyElementText(successMessage,expectedMessage);
     }
@@ -107,9 +103,7 @@ public class ContactUsPage extends BasePage {
         clickElement(homeButton1);
         driver.get(driver.getCurrentUrl());
     }
-
     public void verifyGetInTouchHeader(String expectedTitle){
-
         verifyElementContainsText(textHeader,expectedTitle);
 
     }
