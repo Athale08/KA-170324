@@ -32,7 +32,7 @@ public class ContactUsStepDefinition {
         contactUsPage.clickOnSubmitButton();
     }
     @And("user click on the OK button inside the pop-up")
-    public void userClickOnTheOKButtonInsideThePopUp() {
+    public void userClickOnTheOKButtonInsideThePopUp() throws InterruptedException {
         contactUsPage.acceptAlert();
     }
     @Then("user should be able to view the success message confirmation as {string}")
@@ -40,7 +40,7 @@ public class ContactUsStepDefinition {
         contactUsPage.verifySuccessMessage(formConfMsg);
     }
     @When("user click on cancel button")
-    public void userClickOnCancelButton() {
+    public void userClickOnCancelButton() throws InterruptedException {
         contactUsPage.dismissAlert();
     }
     @Then("verify user stays on the same page and {string} is visible")

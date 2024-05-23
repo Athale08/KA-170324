@@ -14,17 +14,17 @@ import java.util.List;
  */
 public class HomePage extends BasePage {
 
-    public WebDriver driver;
+    public WebDriver driver; // create a constructor and webdriver
 
-    //tagName[@attributeName='attributevalue']
-
-    public HomePage(WebDriver driver) {
-        super(driver);
-        this.driver = driver;
+       public HomePage(WebDriver driver) {
+        super(driver);  // here 'super' keyword is used to call the parent class constructor.
+        this.driver = driver;  // this keyword is used to call the instance members of the current class. 'this' means the object ref.
     }
-
-
+// Locate the elements
+    //tagName[@attributeName='attributevalue']
     private By homePageTitle = By.xpath("//h2[text()='Full-Fledged practice website for Automation Engineers']");
+    private By productsButton = By.xpath("//a[@href=\"/products\"]");
+    private By allProducts = By.xpath("//h2[@class=\"title text-center\"]");
     private By contactUsLink = By.xpath("//a[@href='/contact_us']");
     private By signUpLink = By.xpath("//a[@href='/login']");
     //private By allItems = By.xpath("//div[@class='features_items']");
@@ -40,6 +40,17 @@ public class HomePage extends BasePage {
         verifyIsElementDisplayed(signUpLink); // this will verify if the element is displayed
       //  verifyElementText(signUpLink, "Signup / Login");  //this will assert that the text is as expected
         verifyIsElementDisplayed(homePageTitle);
+    }
+    public void assertProductsPageElements(String expectedTitle) {
+        verifyElementContainsText(productsButton, expectedTitle);
+        verifyIsElementClickable(productsButton);
+    }
+    public void clickOnProductsButton(){
+       clickElement(productsButton);
+    }
+    public void navigateToProductsPage(String expectedTitle){
+        verifyElementContainsText(allProducts, expectedTitle);
+
     }
     public void clickOnContactUsButton(){
         verifyIsElementDisplayed(contactUsLink);

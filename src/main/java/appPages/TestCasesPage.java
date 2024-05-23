@@ -25,9 +25,9 @@ import org.openqa.selenium.WebDriver;
 
     // Verification method to assert all elements available on this page
 
-    public void assertTestCasePageElements(){
+    public void assertTestCasePageElements(String expectedTitle){
 
-        verifyIsElementDisplayed(testCaseButton);
+        verifyElementContainsText(testCaseButton,expectedTitle);
         verifyIsElementClickable(testCaseButton);
 
 
