@@ -85,4 +85,9 @@ public class HomeStepDefinition {
     public void userClickCartButton() {
         homePage.clickOnCart();
     }
+
+    @And("user click on {string} button")
+    public void userClickOnButton() {
+    homePage.clickOnTestCasesButton();
+    }
 }
