@@ -35,6 +35,13 @@ public class HomePage extends BasePage {
     private By continueButton2 = By.xpath("//a[@data-qa='continue-button']");
     private By logoutButton = By.xpath("//a[@href='/logout']");
 
+    private By subscriptionText = By.xpath("//h2[text()='Subscription']");
+    private By subscriptionInput = By.id("susbscribe_email");
+    private By subscriptionButton = By.id("subscribe");
+    private By subscriptionMessage = By.xpath("//*[text()='You have been successfully subscribed!']");
+
+    private By cartLink = By.xpath("//a[@href='/view_cart']");
+
     // Below we will create a specific method to assert verification
     public void assertHomePageElements() {
         verifyIsElementDisplayed(signUpLink); // this will verify if the element is displayed
@@ -46,9 +53,13 @@ public class HomePage extends BasePage {
         verifyIsElementClickable(productsButton);
     }
     public void clickOnProductsButton(){
-       clickElement(productsButton);
+
+        driver.navigate().refresh();
+       // clickElement(productsButton); somehow this is not working , hence tried workaround below
+        driver.get("https://automationexercise.com/products");
     }
     public void navigateToProductsPage(String expectedTitle){
+
         verifyElementContainsText(allProducts, expectedTitle);
 
     }
@@ -104,8 +115,32 @@ public class HomePage extends BasePage {
 
 
     public void verifyHomePageTitle(String expectedTitle){
-         assertTitle(expectedTitle);
+
+        assertTitle(expectedTitle);
     }
+
+    public void scrollToSubscription(){
+        scrollIntoView(subscriptionText);
+    }
+
+
+    public void verifySubscriptionText(String title){
+        verifyElementText(subscriptionText,title);
+    }
+    public void enterEmailAndSubmit(String email){
+        inputInfo(subscriptionInput,email);
+        clickElement(subscriptionButton);
+    }
+
+    public void verifySuccessMessage(String message){
+        verifyElementText(subscriptionMessage, message);
+    }
+
+    public void clickOnCart(){
+
+        clickElement(cartLink);
+    }
+
 
     }
 

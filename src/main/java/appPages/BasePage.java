@@ -31,11 +31,25 @@ public class BasePage {
 
     public void clickElementUsingJs(By by) {
 
-        waitUntilElementIsClickable(by);
-        WebElement element = driver.findElement(by);
-        JavascriptExecutor js = (JavascriptExecutor) driver; // this is an interface with the combination of
-        // webdriver object that be used to execute methods like clicking on an element without scrolling
-        js.executeScript("arguments[0].click();", element);
+        try {
+            waitUntilElementIsClickable(by);
+            WebElement element = driver.findElement(by);
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+
+            // this is an interface with the combination of
+            // webdriver object that be used to execute methods like clicking on an element without scrolling
+
+            js.executeScript("arguments[0].scrollIntoView(true);", element);
+
+            Thread.sleep(1000);
+
+            js.executeScript("arguments[0].click();", element);
+            driver.navigate().refresh();
+        }
+
+        catch(Exception e){
+
+        }
     }
 
     public void inputInfo(By by, String input) {
@@ -202,6 +216,25 @@ public class BasePage {
             Assert.assertTrue(false);
         }
 
+    }
+
+
+    public void scrollIntoView(By by) {
+
+        try {
+            waitUntilElementIsClickable(by);
+            WebElement element = driver.findElement(by);
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+
+            js.executeScript("arguments[0].scrollIntoView(true);", element);
+
+            Thread.sleep(1000);
+
+        }
+
+        catch(Exception e){
+                e.printStackTrace();
+        }
     }
 
 }

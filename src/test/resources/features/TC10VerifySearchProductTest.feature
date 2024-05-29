@@ -3,14 +3,16 @@ Feature: To validate Search Products Feature
 
   Scenario Outline: Verify Search Product feature
     Given user launches the application
-    And verify whether user is on home page with title as "ExpectedTitle"
-    When user click on products button
-    Then verify user is navigated to 'ALL PRODUCTS' page successfully
+    When user click on the Products button
+    Then verify user is navigated to the "All Products" page successfully
+    And the products list is visible
     When user enter "<Product Name>" in search input and click search button
-    Then verify tshirt is visible under the 'SEARCHED PRODUCTS'
+    Then verify "Searched Products" as title of page
+    And  "<Product Name>" is visible in the search results
     Examples:
           |Product Name|
-           |tshirt      |
+           |Full      |
+           | Sleeves       |
 
 
 

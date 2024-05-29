@@ -12,7 +12,7 @@ import org.testng.annotations.DataProvider;
 
 @CucumberOptions(
 
-        features = {"src/test/resources/features/TC7ContactUsForm-CancelTest.feature"},// here you add the source of the feature file you wish to run.
+        features = {"src/test/resources/features/TC12VerifySubscriptionOnCartPageTest.feature"},// here you add the source of the feature file you wish to run.
       //  features = {"src/test/resources/features/"} // when you want to run specific feature files
         glue = {"stepDefinitions","CommonActions"}, //source of stepdefinition and common actions
         plugin = {"pretty",

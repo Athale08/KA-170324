@@ -56,5 +56,33 @@ public class HomeStepDefinition {
     }
 
 
+    @When("user click on the Products button")
+    public void userClickOnTheProductsButton() {
+        homePage.clickOnProductsButton();
+    }
 
+    @When("user Scroll down to footer")
+    public void userScrollDownToFooter() {
+       homePage.scrollToSubscription();
+    }
+
+    @Then("Verify text {string}")
+    public void verifyText(String title) {
+        homePage.verifySubscriptionText(title);
+    }
+
+    @And("user Enter {string} in input and click arrow button")
+    public void userEnterInInputAndClickArrowButton(String email) {
+        homePage.enterEmailAndSubmit(email);
+    }
+
+    @Then("Verify success message {string} is visible")
+    public void verifySuccessMessageIsVisible(String message) {
+        homePage.verifySuccessMessage(message);
+    }
+
+    @When("user Click Cart button")
+    public void userClickCartButton() {
+        homePage.clickOnCart();
+    }
 }
