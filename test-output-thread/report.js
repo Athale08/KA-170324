@@ -1,4 +1,4 @@
 $(document).ready(function() {
-CucumberHTML.timelineItems.pushArray([{"id":"5472c866-9e9a-427e-90b3-84312a03b7c3","feature":"To validate SignUp functionality of automation practice","scenario":"Validate signup feature with already registered email address","start":1714695516839,"group":1,"content":"","tags":"","end":1714695543105,"className":"passed"}]);
+CucumberHTML.timelineItems.pushArray([{"id":"1b50ff42-a647-4bf1-b4a7-f5f002dccc44","feature":"Validation of Contact Us Form","scenario":"Validate the Contact Us Form","start":1716243235810,"group":1,"content":"","tags":"","end":1716243260858,"className":"passed"},{"id":"0eb3b98d-4ae1-40d4-90d9-36fb687ce7c5","feature":"Validation of Contact Us Form","scenario":"Validate the Contact Us Form","start":1716243207842,"group":1,"content":"","tags":"","end":1716243235720,"className":"passed"},{"id":"25054b5b-27ba-489d-8c21-fdb24052cd0d","feature":"Validation of Contact Us Form","scenario":"Validate the Contact Us Form","start":1716243260956,"group":1,"content":"","tags":"","end":1716243286941,"className":"passed"}]);
 CucumberHTML.timelineGroups.pushArray([{"id":1,"content":"Thread[main,5,main]"}]);
 });

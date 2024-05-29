@@ -24,6 +24,7 @@ public class HomePage extends BasePage {
     //tagName[@attributeName='attributevalue']
     private By homePageTitle = By.xpath("//h2[text()='Full-Fledged practice website for Automation Engineers']");
     private By productsButton = By.xpath("//a[@href=\"/products\"]");
+    private By testCasesButton = By.xpath("//a[contains(text(),'Test Cases')]");
     private By allProducts = By.xpath("//h2[@class=\"title text-center\"]");
     private By contactUsLink = By.xpath("//a[@href='/contact_us']");
     private By signUpLink = By.xpath("//a[@href='/login']");
@@ -55,13 +56,17 @@ public class HomePage extends BasePage {
     public void clickOnProductsButton(){
 
         driver.navigate().refresh();
-       // clickElement(productsButton); somehow this is not working , hence tried workaround below
+       //clickElement(productsButton); //somehow this is not working , hence tried workaround below
         driver.get("https://automationexercise.com/products");
     }
     public void navigateToProductsPage(String expectedTitle){
 
         verifyElementContainsText(allProducts, expectedTitle);
 
+    }
+    public void clickOnTestCasesButton(){
+        verifyIsElementDisplayed(testCasesButton);
+        clickElement(testCasesButton);
     }
     public void clickOnContactUsButton(){
         verifyIsElementDisplayed(contactUsLink);
