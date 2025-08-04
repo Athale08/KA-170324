@@ -1,6 +1,6 @@
 This project is a web browser automation framework built using Selenium WebDriver, Cucumber, and TestNG with Java. It is designed to automate scenarios on a sample "automation exercise" portal.
 
-Technology Stack
+Technology Stack:
 This framework leverages a robust set of modern tools to enable efficient and scalable test automation:
 
 Java: The primary programming language for implementing the test logic.
@@ -23,7 +23,7 @@ More Clarity: This adapter translates Cucumber's BDD-style results (e.g., Given,
 
 Java Faker: A library used to generate realistic but random data (e.g., names, addresses, emails) for test scripts, which is particularly useful for scenarios that require unique user data to avoid conflicts.
 
-Prerequisites and Versions
+Prerequisites and Versions:
 To set up and run this project, you need the following software installed:
 
 Java Dev Kit (JDK): Version 11 or higher.
@@ -32,45 +32,78 @@ Maven: Version 3.6.1 or higher.
 
 IntelliJ IDEA: The recommended Integrated Development Environment (IDE).
 
-Project Structure
-The project follows a standard Maven directory structure, which is organized to keep test code, resources, and configurations separate.
+Project Structure:
+This project follows a standard Maven directory structure, which is organized to separate test code, resources, and configurations.
 
 .github/Workflows
-├── github-action-ci.yml                 # GitHub Actions YAML file for CI/CD
+
+github-action-ci.yml: Contains the GitHub Actions workflow file to run tests automatically in a CI/CD environment.
 
 src/main
-├── java
-│   ├── drivers
-│   │   └── DriverFactory.java            # Manages browser driver instances.
-│   ├── appPages
-│   │   ├── BasePage.java                 # Reusable methods (e.g., waits, common actions).
-│   │   └── <ScreenName>Page.java          # Locators and methods for specific screens.
-│   ├── utilities
-│   │   ├── ConfigReader.java             # Reads data from config.properties.
-│   │   ├── ExcelReader.java              # Reads data from Excel workbooks.
-│   │   └── Constants.java                # Stores credentials for remote execution.
-│   └── enums
-│       └── DriverType.java               # Pre-defined browser types (e.g., CHROME, FIREFOX).
-│       └── Env.java                      # Pre-defined environment types (LOCAL, REMOTE).
-└── resources
-    ├── config.properties                 # Main configuration file.
-    └── log4j2.xml                        # Logging configuration.
+
+java
+
+drivers: Manages browser driver instances.
+
+DriverFactory.java: A class for creating WebDriver instances and enabling parallel execution.
+
+appPages: Contains the Page Object Model (POM) classes.
+
+BasePage.java: Holds reusable methods for browser interactions.
+
+<ScreenName>Page.java: Stores locators and methods for specific application screens.
+
+utilities: Houses utility classes for common tasks.
+
+ConfigReader.java: Reads data from the configuration properties file.
+
+ExcelReader.java: Reads test data from Excel files.
+
+Constants.java: Stores credentials for remote execution platforms.
+
+enums: Contains enumerated types for predefined values.
+
+DriverType.java: Defines the types of browsers for execution (e.g., CHROME, FIREFOX).
+
+Env.java: Defines the execution environment (e.g., LOCAL, REMOTE).
+
+resources
+
+config.properties: The main configuration file for the framework.
 
 src/test
-├── java
-│   ├── runners
-│   │   └── TestRunner.java               # TestNG/JUnit runner class.
-│   └── stepDefinitions
-│       └── <StepDefinition>.java         # Implementation of Gherkin steps.
-└── resources
-    ├── TestData
-    │   └── <TestData>.xlsx               # Excel files for data-driven tests.
-    ├── features
-    │   └── <FeatureName>.feature         # Cucumber feature files in Gherkin format.
-    └── reports-config
-        ├── cucumber.properties           # Cucumber reporting configurations.
-        ├── extent-config.xml             # Customizes the Extent Report layout.
-        └── extent.properties             # Configures the Extent Report output path.
+
+java
+
+runners: Holds the test runner classes.
+
+TestRunner.java: The entry point for executing Cucumber feature files.
+
+stepDefinitions: Contains the implementation code for all Gherkin steps.
+
+<StepDefinition>.java: The glue code connecting features to the app page methods.
+
+resources
+
+TestData: Stores Excel files used for data-driven testing.
+
+<TestData>.xlsx: An example Excel file.
+
+features: Contains all the test scenarios written in Gherkin format.
+
+<FeatureName>.feature: An example feature file.
+
+reports-config: Configuration files for test reporting.
+
+cucumber.properties: Configures the Cucumber reporting plugin.
+
+extent-config.xml: Customizes the layout of the Extent Report.
+
+extent.properties: Defines the output path for the generated reports.
+
+pom.xml: The Maven build file, which manages project dependencies and build configurations.
+
+TestNGSuite.xml: A TestNG XML suite file for running specific sets of tests.
 Key Packages and Their Roles:
 .github/Workflows: Contains GitHub Actions YAML files for Continuous Integration (CI). These files enable you to automatically execute your test suites in a cloud environment every time code is pushed to the repository. The workflow can be configured to use a Maven profile from the pom.xml, allowing for different test suites to be triggered.
 
